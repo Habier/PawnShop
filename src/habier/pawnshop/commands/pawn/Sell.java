@@ -2,7 +2,6 @@ package habier.pawnshop.commands.pawn;
 
 import java.util.logging.Level;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -17,9 +16,9 @@ public final class Sell {
 	public static boolean exec(Player p, int number) {
 
 		Inventory inv = p.getInventory();
-		Material targetItem = Material.DIAMOND;
 
-		if (!(inv.contains(targetItem, number))) { // Check item quatity.
+		if (!(inv.contains(Configurer.targetItem, number))) { // Check item
+																// quatity.
 			p.sendMessage(Lang.Pawn_player_notEnoughItems);
 			return true;
 		}
@@ -44,7 +43,7 @@ public final class Sell {
 
 		if (r.transactionSuccess()) {
 			// All OK. take the items and give the money
-			PawnHelper.removeItems(p, number, targetItem);
+			PawnHelper.removeItems(p, number, Configurer.targetItem);
 			p.sendMessage(String.format(Lang.Pawn_player_sold, money, PawnPlugin.econ.format(r.balance)));
 		} else {// Creepy error
 			p.sendMessage(String.format("An error occured: %s", r.errorMessage));

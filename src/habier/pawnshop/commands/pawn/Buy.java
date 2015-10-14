@@ -2,7 +2,6 @@ package habier.pawnshop.commands.pawn;
 
 import java.util.logging.Level;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -16,9 +15,8 @@ import net.milkbowl.vault.economy.EconomyResponse;
 public final class Buy {
 	static boolean exec(Player p, int number) {
 		Inventory inv = p.getInventory();
-		Material targetItem = Material.DIAMOND;
 
-		if (!PawnHelper.checkEnoughInventory(inv, number, targetItem)) {
+		if (!PawnHelper.checkEnoughInventory(inv, number, Configurer.targetItem)) {
 			p.sendMessage(Lang.Pawn_player_notEnoughInventory);
 			return true;
 		}
@@ -56,7 +54,7 @@ public final class Buy {
 				return true;
 			}
 			// all OK. take the items and give the money
-			PawnHelper.giveItems(inv, number, targetItem);
+			PawnHelper.giveItems(inv, number, Configurer.targetItem);
 
 			p.sendMessage(String.format("You paid %s and now have %s", money, PawnPlugin.econ.format(r.balance)));
 		} else {

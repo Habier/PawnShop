@@ -2,9 +2,11 @@ package habier.pawnshop.main;
 
 import java.io.File;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class Configurer {
+	public static Material targetItem;
 	public static int maxSell;
 	public static int maxBuy;
 	public static double moneyPerSell;
@@ -13,11 +15,10 @@ public class Configurer {
 	public static void loadConfig(FileConfiguration config) {
 		setDefaults(config);
 		readConfig(config);
-
 	}
 
 	public static void setDefaults(FileConfiguration config) {
-		config.addDefault("cadena", "Database isn't responding.");
+		config.addDefault("item", Material.DIAMOND.name());
 		config.addDefault("language", "english.json");
 		config.addDefault("maxSell", 16);
 		config.addDefault("maxBuy", 0);
@@ -27,6 +28,7 @@ public class Configurer {
 	}
 
 	public static void readConfig(FileConfiguration config) {
+		targetItem = Material.getMaterial(config.getString("item"));
 		maxSell = config.getInt("maxSell");
 		maxBuy = config.getInt("maxBuy");
 		moneyPerSell = config.getInt("moneyPerSell");
