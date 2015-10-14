@@ -1,5 +1,5 @@
 This is about selling items with a buyback option. It allows the server to lend money to players with a per player limit.
-Well, for now it's only diamonds.
+Well, for now it is only one configurable item.
 
 Commands
 ===========
