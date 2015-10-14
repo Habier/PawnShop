@@ -1,0 +1,8 @@
+name: PawnPlugin
+main: habier.pawnshop.main.PawnPlugin
+version: 0.2
+commands:  
+  pawn:
+    description: Turn your items into money
+    usage: /pawn [{buy|sell} {Quantity}]
+    depend: [Vault]

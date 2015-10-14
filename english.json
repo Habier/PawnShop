@@ -1,0 +1,14 @@
+{
+    "DB_timeOut": "Database isn't responding.",
+    "DB_cannotCreate": "Cannot add data to database.",
+    "DB_cannotConnect": "Cannot connect to database.",
+    "Error_MoneyIsGone": "Your money is gone, contact an admin, there is a logfile for that",
+    "Pawn_checkLimit": "You can sell %s more",
+    "Pawn_overLimit": "You cannot sell that much, it's over your limit",
+    "Pawn_player_sold": "You were given %s and now have %s",
+    "Pawn_player_buyLimitReached": "You are over the buy limit",
+    "Pawn_player_notEnoughMoney": "You don't have enough money.",
+    "Pawn_player_notEnoughItems": "You don't have as much items as you want to sell",
+    "Pawn_player_notEnoughInventory": "You don't have enough inventory space.",
+    "Pawn_player_wrongLimit": "Tell to an admin that you saw this mensaje, because your pawn limit is wrong"
+}
