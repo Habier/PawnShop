@@ -3,6 +3,6 @@ Well, for now it is only one configurable item.
 
 Commands
 ===========
-/pawn checks how much more you can sell to the system
-/pawn sell "quantity" To sell an ammount of items, if they aren't over the limit
-/pawn buy "quatity" To buy an ammount (if under limit) of items.
+**/pawn** checks how much more you can sell to the system.  
+**/pawn sell "quantity"** To sell an ammount of items, if they aren't over the limit.  
+**/pawn buy "quatity"** To buy an ammount (if under limit) of items. 
