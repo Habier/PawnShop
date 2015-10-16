@@ -19,12 +19,6 @@ public abstract class SQLite {
 
 	public SQLite(String path) {
 		dbname = new File(path);
-		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		conn = getConnection();// test connection
 	}
 
 	/**
