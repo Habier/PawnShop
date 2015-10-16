@@ -27,6 +27,9 @@ public abstract class SQLite {
 		conn = getConnection();// test connection
 	}
 
+	/**
+	 * Returns the object internal conection
+	 */
 	public Connection getConnection() {
 		try {
 			if (conn != null && !conn.isClosed()) {
@@ -35,15 +38,29 @@ public abstract class SQLite {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		checkFile();
+		return newConnection();
+	}
+
+	static {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:" + dbname.toString());
-			return conn;
-		} catch (SQLException e) {
-			Log.write(Level.SEVERE, "Cannot Connect to SQLite database.", e);
+
 		} catch (ClassNotFoundException e) {
 			Log.write(Level.SEVERE, "JBDC library not found.");
+		}
+	}
+
+	/**
+	 * Creates and Returns a conection that is not saved in the object. <br>
+	 * It's your responsability to close it.
+	 */
+	public Connection newConnection() {
+		checkFile();
+		try {
+			return DriverManager.getConnection("jdbc:sqlite:" + dbname.toString());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		return null;
 	}
