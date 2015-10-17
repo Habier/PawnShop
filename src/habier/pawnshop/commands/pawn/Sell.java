@@ -12,7 +12,7 @@ import habier.pawnshop.main.Lang;
 import habier.pawnshop.main.PawnPlugin;
 import net.milkbowl.vault.economy.EconomyResponse;
 
-public final class Sell {
+public class Sell {
 	public static boolean exec(Player p, int number) {
 
 		Inventory inv = p.getInventory();

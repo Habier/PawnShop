@@ -14,11 +14,15 @@ import habier.pawnshop.helpers.Log;
 
 public abstract class SQLite {
 
-	protected File dbname;
+	protected File dbname = null;
 	protected Connection conn;
 
 	public SQLite(String path) {
 		dbname = new File(path);
+	}
+
+	protected SQLite() {
+
 	}
 
 	/**
@@ -53,7 +57,6 @@ public abstract class SQLite {
 		try {
 			return DriverManager.getConnection("jdbc:sqlite:" + dbname.toString());
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return null;
@@ -116,6 +119,33 @@ public abstract class SQLite {
 		} catch (SQLException e) {
 			Log.write(Level.WARNING, "Error closing an Statement");
 		}
+	}
+
+	public boolean commit() {
+		try {
+			conn.commit();
+			return true;
+		} catch (SQLException e) {
+			rollback();
+		}
+		return false;
+	}
+
+	public void rollback() {
+		try {
+			conn.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void closeConnection() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

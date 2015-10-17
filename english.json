@@ -6,6 +6,7 @@
     "Pawn_checkLimit": "You can sell %s more",
     "Pawn_overLimit": "You cannot sell that much, it's over your limit",
     "Pawn_player_sold": "You were given %s and now have %s",
+	"Pawn_player_bought": "You were given %s and now have %s",
     "Pawn_player_buyLimitReached": "You are over the buy limit",
     "Pawn_player_notEnoughMoney": "You don't have enough money.",
     "Pawn_player_notEnoughItems": "You don't have as much items as you want to sell",

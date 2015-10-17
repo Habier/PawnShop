@@ -1,5 +1,6 @@
 package habier.pawnshop.database;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
@@ -11,11 +12,16 @@ import habier.pawnshop.main.Lang;
 import habier.sqlite.SQLite;
 
 public class PawnDB extends SQLite {
+	@SuppressWarnings("unused")
+	private static File dbname = null;
 	protected final String DBTable = "CREATE TABLE IF NOT EXISTS Users (" + "`uuid` BINARY(16)  NOT NULL,"
 			+ "`sold` int(11) NOT NULL," + "PRIMARY KEY (`UUID`)" + ");";
 
 	public PawnDB(String filename) {
 		super(filename);
+	}
+
+	public PawnDB() {
 	}
 
 	public PlayerData getPlayerData(UUID uuid) {
