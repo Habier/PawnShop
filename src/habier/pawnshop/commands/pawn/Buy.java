@@ -56,7 +56,7 @@ public final class Buy {
 			// all OK. take the items and give the money
 			PawnHelper.giveItems(inv, number, Configurer.targetItem);
 
-			p.sendMessage(String.format("You paid %s and now have %s", money, PawnPlugin.econ.format(r.balance)));
+			p.sendMessage(String.format(Lang.Pawn_player_bought, money, PawnPlugin.econ.format(r.balance)));
 		} else {
 			p.sendMessage(String.format("An error occured: %s", r.errorMessage));
 		}
