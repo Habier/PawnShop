@@ -19,12 +19,14 @@ public abstract class SQLite {
 
 	public SQLite(String path) {
 		dbname = new File(path);
+	}
+
+	static {
 		try {
 			Class.forName("org.sqlite.JDBC");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			Log.write(Level.SEVERE, "JBDC library not found.");
 		}
-		conn = getConnection();// test connection
 	}
 
 	public Connection getConnection() {
@@ -37,13 +39,10 @@ public abstract class SQLite {
 		}
 		checkFile();
 		try {
-			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:" + dbname.toString());
 			return conn;
 		} catch (SQLException e) {
 			Log.write(Level.SEVERE, "Cannot Connect to SQLite database.", e);
-		} catch (ClassNotFoundException e) {
-			Log.write(Level.SEVERE, "JBDC library not found.");
 		}
 		return null;
 	}
